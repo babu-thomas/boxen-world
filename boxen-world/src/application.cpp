@@ -1,3 +1,6 @@
+#include <iostream>
+#include <GL/glew.h>
+
 #include "application.h"
 
 Application::Application(const std::string & name)
@@ -9,6 +12,7 @@ void Application::run_loop()
 {
 	while (context_.window.isOpen())
 	{
+		print_opengl_errors();
 		handle_events();
 	}
 }
@@ -38,5 +42,15 @@ void Application::handle_events()
 		default:
 			break;
 		}
+	}
+}
+
+void Application::print_opengl_errors()
+{
+	GLenum error = glGetError();
+	while (error != GL_NO_ERROR)
+	{
+		std::cerr << "OpenGL Error: " << error << std::endl;
+		error = glGetError();
 	}
 }

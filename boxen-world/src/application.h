@@ -10,5 +10,6 @@ public:
 	void run_loop();
 private:
 	void handle_events();
+	void print_opengl_errors();
 	Context context_;
 };
