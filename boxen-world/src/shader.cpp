@@ -1,5 +1,7 @@
 #include <iostream>
 #include <stdexcept>
+#include <glm/glm.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 #include "util/fileutil.h"
 #include "shader.h"
@@ -25,6 +27,42 @@ void Shader::enable() const
 void Shader::disable() const
 {
 	glUseProgram(0);
+}
+
+void Shader::set_uniform1f(const GLchar *name, float value) const
+{
+	glUniform1f(get_uniform_location(name), value);
+}
+
+void Shader::set_uniform1i(const GLchar *name, int value) const
+{
+	glUniform1i(get_uniform_location(name), value);
+}
+
+void Shader::set_uniform2f(const GLchar *name, const glm::vec2& value) const
+{
+	glUniform2f(get_uniform_location(name), value.x, value.y);
+}
+
+void Shader::set_uniform3f(const GLchar *name, const glm::vec3& value) const
+{
+	glUniform3f(get_uniform_location(name), value.x, value.y, value.z);
+}
+
+void Shader::set_uniform4f(const GLchar *name, const glm::vec4& value) const
+{
+	glUniform4f(get_uniform_location(name), value.x, value.y, value.z, value.w);
+}
+
+void Shader::set_uniform_mat4(const GLchar *name, const glm::mat4& value) const
+{
+	glUniformMatrix4fv(get_uniform_location(name), 1, GL_FALSE, glm::value_ptr(value));
+}
+
+GLint Shader::get_uniform_location(const GLchar *name) const
+{
+	//TODO: Cache the results as this is a slow operation
+	return glGetUniformLocation(program_id_, name);
 }
 
 GLuint Shader::load() const

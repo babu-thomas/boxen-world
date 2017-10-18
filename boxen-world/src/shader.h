@@ -2,6 +2,7 @@
 
 #include <string>
 #include <GL/glew.h>
+#include <glm/fwd.hpp>
 
 class Shader
 {
@@ -10,6 +11,15 @@ public:
 	~Shader();
 	void enable() const;
 	void disable() const;
+
+	void set_uniform1f(const GLchar* name, float value) const;
+	void set_uniform1i(const GLchar* name, int value) const;
+	void set_uniform2f(const GLchar* name, const glm::vec2& value) const;
+	void set_uniform3f(const GLchar* name, const glm::vec3& value) const;
+	void set_uniform4f(const GLchar* name, const glm::vec4& value) const;
+	void set_uniform_mat4(const GLchar* name, const glm::mat4& value) const;
+
+	GLint get_uniform_location(const GLchar *name) const;
 
 private:
 	GLuint load() const;
