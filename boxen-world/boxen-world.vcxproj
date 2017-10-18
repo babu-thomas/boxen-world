@@ -20,6 +20,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\model.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\model.h" />
+    <ClInclude Include="src\util\non_copyable.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
