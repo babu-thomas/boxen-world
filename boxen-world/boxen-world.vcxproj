@@ -19,10 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\application.cpp" />
+    <ClCompile Include="src\context.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\model.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\application.h" />
+    <ClInclude Include="src\context.h" />
     <ClInclude Include="src\model.h" />
     <ClInclude Include="src\util\non_copyable.h" />
   </ItemGroup>
