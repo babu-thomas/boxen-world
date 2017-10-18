@@ -45,7 +45,7 @@ void Application::handle_events()
 	}
 }
 
-void Application::print_opengl_errors()
+void Application::print_opengl_errors() const
 {
 	GLenum error = glGetError();
 	while (error != GL_NO_ERROR)
