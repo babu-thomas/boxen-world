@@ -24,6 +24,7 @@
     <ClCompile Include="src\context.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\model.cpp" />
+    <ClCompile Include="src\quad_renderer.cpp" />
     <ClCompile Include="src\shader.cpp" />
     <ClCompile Include="src\texture.cpp" />
   </ItemGroup>
@@ -32,6 +33,7 @@
     <ClInclude Include="src\camera.h" />
     <ClInclude Include="src\context.h" />
     <ClInclude Include="src\model.h" />
+    <ClInclude Include="src\quad_renderer.h" />
     <ClInclude Include="src\shader.h" />
     <ClInclude Include="src\texture.h" />
     <ClInclude Include="src\util\fileutil.h" />
