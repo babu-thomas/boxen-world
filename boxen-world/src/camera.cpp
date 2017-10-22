@@ -15,14 +15,21 @@ Camera::Camera()
 
 void Camera::update()
 {
+	view_mat_ = glm::lookAt(position_, target_, up_);
+	proj_view_mat_ = proj_mat_ * view_mat_;
 }
 
 glm::mat4 Camera::get_view_mat() const
 {
-	return glm::lookAt(position_, target_, up_);
+	return view_mat_;
 }
 
 glm::mat4 Camera::get_proj_mat() const
 {
 	return proj_mat_;
+}
+
+glm::mat4 Camera::get_proj_view_mat() const
+{
+	return proj_view_mat_;
 }
