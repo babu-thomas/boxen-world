@@ -2,6 +2,8 @@
 
 #include <string>
 #include "context.h"
+#include "camera.h"
+#include "quad_renderer.h"
 
 class Application
 {
@@ -12,4 +14,6 @@ private:
 	void handle_events();
 	void print_opengl_errors() const;
 	Context context_;
+	Camera camera_;
+	QuadRenderer renderer_;
 };

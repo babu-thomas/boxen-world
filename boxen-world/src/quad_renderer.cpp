@@ -1,10 +1,11 @@
+#include <iostream>
 #include <glm/glm.hpp>
 #include <GL/glew.h>
 
 #include "quad_renderer.h"
 
 QuadRenderer::QuadRenderer() :
-	basic_shader_("shaders/basic.vert", "shaders/basic.frag")
+	basic_shader_(".\\src\\shaders\\basic.vert", ".\\src\\shaders\\basic.frag")
 {
 	quad_model_.add_data(
 	{
@@ -41,6 +42,7 @@ void QuadRenderer::render_quads(const Camera& camera)
 	basic_texture_.bind();
 
 	basic_shader_.set_uniform_mat4("proj_view_mat", camera.get_proj_view_mat());
+	basic_shader_.set_uniform_mat4("model_mat", glm::mat4());
 
 	for (auto& quad : quads_)
 	{

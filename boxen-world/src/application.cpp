@@ -10,10 +10,16 @@ Application::Application(const std::string & name)
 
 void Application::run_loop()
 {
+	renderer_.add_quad({ 0, 0, 0 });
 	while (context_.window.isOpen())
 	{
 		print_opengl_errors();
 		handle_events();
+		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+		glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+		camera_.update();
+		renderer_.render_quads(camera_);
+		context_.window.display();
 	}
 }
 
